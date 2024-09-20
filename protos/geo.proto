@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+package geo;
+
+option go_package = "github.com/vishesh20155/new-benchmarks/gen/geo";
+
+service Geo {
+  // Finds the hotels contained nearby the current lat/lon.
+  rpc Nearby(Request) returns (Result);
+}
+message UnserializedRequest {
+  float lat = 1;
+  float lon = 2;
+}
+
+message UnserializedResponse {
+  repeated string hotelIds = 1;
+}
+// The latitude and longitude of the current location.
+message Request {
+  string req = 1;
+}
+
+message Result {
+  string resp = 1;
+}
